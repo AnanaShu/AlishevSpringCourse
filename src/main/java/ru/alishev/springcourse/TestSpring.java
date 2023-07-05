@@ -9,8 +9,9 @@ public class TestSpring {
         //этот класс обращается к файлу applicationContext.xml, считывает его и помещает все бины,
         //которые там описаны в ApplicationContext
 
-        Music music  = context.getBean("musicBean", Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        //Music music  = context.getBean("musicBean", Music.class);
+        //MusicPlayer musicPlayer = new MusicPlayer(music);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
         context.close();
     }
