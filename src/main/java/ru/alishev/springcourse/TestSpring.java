@@ -6,28 +6,15 @@ public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
-        //этот класс обращается к файлу applicationContext.xml, считывает его и помещает все бины,
-        //которые там описаны в ApplicationContext
+        Music music = context.getBean("rockMusic", Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+        musicPlayer.playMusic();
 
-        // Music music = context.getBean("musicBean", Music.class);
-        // MusicPlayer musicPlayer = new MusicPlayer(music);
-
-
-//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//        MusicPlayer musicPlayer2 = context.getBean("musicPlayer", MusicPlayer.class);
-//
-//        boolean compare = musicPlayer == musicPlayer2;
-//        System.out.println(compare);
-//        musicPlayer.setVolume(45);
-//
-//        System.out.println(musicPlayer.getVolume());
-//        System.out.println(musicPlayer2.getVolume());
-
-        ClassicalMusic classicalMusic = context.getBean("musicBean", ClassicalMusic.class);
-
-        System.out.println(classicalMusic.getSong());
-
+        Music music1 = context.getBean("classicalMusic", Music.class);
+        MusicPlayer musicPlayer1 = new MusicPlayer(music1);
+        musicPlayer1.playMusic();
         context.close();
     }
-
 }
+
+
