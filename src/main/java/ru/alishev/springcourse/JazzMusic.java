@@ -5,7 +5,7 @@ import java.util.List;
 public class JazzMusic implements Music {
 
     @Override
-    public List<String> getSongs() {
+    public String getSong() {
         return null;
     }
 }
